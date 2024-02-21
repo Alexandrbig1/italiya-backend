@@ -3,8 +3,8 @@ import User from "../models/Users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
-import gravatar from "gravatar";
 import HttpError from "../helpers/HttpError.js";
+import Session from "../models/sessionSchema.js";
 
 const { JWT_SECRET } = process.env;
 
@@ -19,14 +19,23 @@ const signUp = async (req, res) => {
     );
   }
   const hashPassword = await bcrypt.hash(password, 10);
-  const avatarURL = gravatar.url(email, { s: "200", r: "pg", d: "mm" });
 
   const newUser = await User.create({
-    name,
-    email,
+    ...req.body,
     password: hashPassword,
-    avatarURL,
   });
+
+  const newSession = await Session.create({
+    uid: newUser._id,
+  });
+
+  const payload = {
+    id: newUser._id,
+    sid: newSession._id,
+  };
+
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
+  const refreshToken = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
 
   res.status(201).json({
     message:
@@ -34,7 +43,8 @@ const signUp = async (req, res) => {
     user: {
       name: newUser.name,
       email: newUser.email,
-      avatarURL: newUser.avatarURL,
+      token: token,
+      refreshToken: refreshToken,
     },
   });
 };

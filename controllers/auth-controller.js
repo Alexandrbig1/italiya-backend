@@ -31,6 +31,7 @@ const signUp = async (req, res) => {
     message:
       "Congratulations! Your registration was successful. You can now sign in with your new account.",
     user: {
+      name: newUser.name,
       email: newUser.email,
       avatarURL: newUser.avatarURL,
     },
@@ -82,14 +83,14 @@ const logOut = async (req, res) => {
   });
 };
 
-const getCurrent = async (req, res) => {
-  const { email } = req.user;
-  res.json({ email });
-};
+// const getCurrent = async (req, res) => {
+//   const { email } = req.user;
+//   res.json({ email });
+// };
 
 export default {
   signUp: ctrlWrapper(signUp),
   signIn: ctrlWrapper(signIn),
-  getCurrent: ctrlWrapper(getCurrent),
+  // getCurrent: ctrlWrapper(getCurrent),
   logOut: ctrlWrapper(logOut),
 };

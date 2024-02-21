@@ -4,6 +4,10 @@ import emailRegex from "../regex/emailRegex.js";
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: [true, "Set password for user"],

@@ -22,6 +22,7 @@ const signUp = async (req, res) => {
   const avatarURL = gravatar.url(email, { s: "200", r: "pg", d: "mm" });
 
   const newUser = await User.create({
+    name,
     email,
     password: hashPassword,
     avatarURL,

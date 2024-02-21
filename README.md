@@ -1,6 +1,6 @@
 # Italiya's Whisker Wonders Backend
 
-img align="right" src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="100"/>
+<img align="right" src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="100"/>
 
 Welcome to the backend repository of Italiya's Whisker Wonders! This project is part of a delightful online shopping experience centered around Italiya, the charming orange cat.
 

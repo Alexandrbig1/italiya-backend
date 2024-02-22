@@ -155,6 +155,7 @@ const swaggerOptions = {
               required: true,
               schema: {
                 type: "string",
+                format: "JWT",
               },
               description: "Bearer token for authentication",
             },

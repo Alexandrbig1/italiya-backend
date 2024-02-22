@@ -3,6 +3,8 @@ import "dotenv/config";
 
 const getCurrent = async (req, res) => {
   const { _id: id, name, email } = req.user;
+
+  console.log(req.user);
   res.json({ id, name, email });
 };
 

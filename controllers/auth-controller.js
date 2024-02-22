@@ -69,17 +69,29 @@ const signIn = async (req, res) => {
   }
 
   const { _id: id } = user;
+
+  const newSession = await Session.create({
+    uid: id,
+  });
+
   const payload = {
     id,
+    sid: newSession._id,
   };
 
   const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
+  const refreshToken = jwt.sign(payload, JWT_SECRET, {
+    expiresIn: "7d",
+  });
 
   await User.findByIdAndUpdate(id, { token });
 
   res.json({
+    message: "Successful operation",
     token,
+    refreshToken,
     user: {
+      name: user.name,
       email: user.email,
     },
   });
@@ -87,6 +99,9 @@ const signIn = async (req, res) => {
 
 const logOut = async (req, res) => {
   const { _id } = req.user;
+  const { _id: ssid } = req.session;
+
+  await Session.deleteOne({ _id: ssid });
   await User.findByIdAndUpdate(_id, { token: "" });
 
   res.json({

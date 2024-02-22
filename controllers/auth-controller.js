@@ -99,9 +99,7 @@ const signIn = async (req, res) => {
 
 const logOut = async (req, res) => {
   const { _id } = req.user;
-  const { _id: ssid } = req.session;
 
-  await Session.deleteOne({ _id: ssid });
   await User.findByIdAndUpdate(_id, { token: "" });
 
   res.json({

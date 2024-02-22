@@ -3,9 +3,14 @@ const swaggerOptions = {
     openapi: "3.0.0",
     info: {
       title: "Italiya's Whisker Wonders API Documentation",
-      description: `\nExplore the API documentation for Italiya's Whisker Wonders website.\n\n🌐
+      description: `\n<strong>Explore the API documentation for Italiya's Whisker Wonders website.</strong>\n\n🌐
 [Visit Italiya's website](https://alexandrbig1.github.io/italiya/)\n\n\n💅
-[Frontend GitHub repository](https://github.com/Alexandrbig1/italiya)\n\n\n🧰 [Backend GitHub repository](https://github.com/Alexandrbig1/italiya-backend)\n\n\n Step into the enchanting world of Italiya: our charismatic orange cat. Indulge in whisker wonders with our curated collection of cat-themed treasures — cozy t-shirts, charming cups, and delightful souvenirs. Embrace feline magic and bring a touch of Italiya's charm into your everyday moments. Explore, shop, and immerse yourself in the joy of cats.
+[Frontend GitHub repository](https://github.com/Alexandrbig1/italiya)\n\n\n🧰 [Backend GitHub repository](https://github.com/Alexandrbig1/italiya-backend)\n\n\n This API, powered by a robust backend, serves as the backbone for the enchanting world of Italiya, our charismatic orange cat. Step into the feline magic of Italiya's world. Whether you're exploring, shopping, or simply immersing yourself in the joy of cats, this API is designed to enhance your experience.\n\n **Key Features:**
+<ul>
+<li><b>Auth API</b>: Seamlessly authenticate, sign up, sign in, and log out with ease. Witness the trustworthy authentication process designed to enhance the user experience.</li>
+<li><b>Users API</b>: Effortlessly manage user profiles. Execute queries, update user information, and refresh current user details. Immerse yourself in the joy of cats while our backend ensures a seamless user experience.</li>
+<li><b>Schemas Exploration</b>: Dive into the heart of Italiya's world by exploring detailed schemas that power the API. Gain insights into data structures, see examples, and understand the underlying magic that brings enchanting features to life.</li>
+</ul>
   `,
       version: "1.0.0",
     },
